@@ -1,0 +1,124 @@
+general:
+  collectTelemetryData: false
+  jenkinsKubernetes:
+    jnlpAgent: jenkins/inbound-agent@sha256:1e371a3e8100a6f8e16cb6000aea8a51961fdcdeaddbd354940e80951020da70
+    securityContext:
+      runAsUser: 1000
+      fsGroup: 1000
+steps:
+  abapEnvironmentRunATCCheck:
+    failOnSeverity: error
+  artifactPrepareVersion:
+    versioningType: cloud_noTag
+  dockerExecute:
+    dockerPullImage: false
+  dockerExecuteOnKubernetes:
+    dockerPullImage: false
+  cloudFoundryDeploy:
+    dockerImage: ppiper/cf-cli@sha256:8470e0646e0395809424e572860e0c52ba01c69cd419c6f87e6ca2007466c3df
+    dockerPullImage: false
+    cloudFoundry:
+      mtaDeployParameters: -f --version-rule ALL
+  mtaBuild:
+    dockerImage: ''
+    dockerPullImage: false
+  npmExecuteScripts:
+    dockerPullImage: false
+    dockerImage: ''
+    stashContent:
+    - source
+    - cloudcitransfer
+  npmExecuteLint:
+    dockerPullImage: false
+    dockerImage: ''
+    install: true
+    outputFormat: stylish
+    outputFileName: ''
+  npmExecuteEndToEndTests:
+    dockerImage: ''
+    dockerPullImage: false
+  sonarExecuteScan:
+    dockerImage: sonarsource/sonar-scanner-cli@sha256:a45965aac56f8c685c35103092429b4ed931cdec670731e7dede06bcab225b73
+    dockerPullImage: false
+  neoDeploy:
+    dockerImage: ''
+    neo:
+      credentialType: SecretFile
+  kanikoExecute:
+    dockerImage: gcr.io/kaniko-project/executor@sha256:473d6dfb011c69f32192e668d86a47c0235791e7e857c870ad70c5e86ec07e8c
+    buildOptions:
+    - --skip-tls-verify-pull
+  malwareExecuteScan:
+    host: http://malware-scan-proxy-basic-auth-proxy.malware-scan-proxy.svc.cluster.local
+    username: dummy
+    password: dummy
+  kubernetesDeploy:
+    dockerImage: dtzar/helm-kubectl@sha256:70b444a520d85d96d79f2a3ec55b4ce6291df9ab595c77d74412676146579020
+    stashContent:
+    - deployDescriptor
+    - downloadedArtifact
+    - cloudcitransfer
+  transportRequestUploadCTS:
+    dockerImage: build-releases.common.repositories.cloud.sap/com.sap.cloudci.pipeline/cloudci-fiori-node-image@sha256:862236c1ccd3220a98cf6f31e1cb7214750285049b29a9fec21358eca57c5d02
+    deployToolDependencies: []
+  pipelineStashFilesAfterBuild:
+    stashIncludes:
+      buildResult: '**/target/*.war, **/target/*.jar, **/*.mtar, **/*.jar.original, dist/**'
+      checkmarx: '**/*.js, **/*.scala, **/*.py, **/*.go, **/*.d, **/*.di, **/*.xml, **/*.html, **/*.ts'
+      checkmarxOne: '**/*.js, **/*.scala, **/*.py, **/*.go, **/*.d, **/*.di, **/*.xml, **/*.html, **/*.ts'
+      classFiles: '**/target/classes/**/*.class, **/target/test-classes/**/*.class'
+      sonar: '**/jacoco*.exec, **/sonar-project.properties'
+    stashExcludes:
+      buildResult: cloudcitransfer/**/*
+      checkmarx: '**/*.mockserver.js, node_modules/**/*.js, cloudcitransfer/**/*'
+      checkmarxOne: '**/*.mockserver.js, node_modules/**/*.js, cloudcitransfer/**/*'
+      classFiles: cloudcitransfer/**/*
+      sonar: cloudcitransfer/**/*
+    noDefaultExludes: []
+  pipelineStashFilesBeforeBuild:
+    stashIncludes:
+      buildDescriptor: '**/pom.xml, **/.mvn/**, **/assembly.xml, **/.swagger-codegen-ignore, **/package.json, **/requirements.txt, **/setup.py, **/mta*.y*ml, **/.npmrc, **/Dockerfile, .hadolint.yaml, **/VERSION, **/version.txt, **/Gopkg.*, **/dub.json, **/dub.sdl, **/build.sbt, **/sbtDescriptor.json, **/project/*, **/ui5.yaml, **/ui5.yml'
+      deployDescriptor: '**/manifest*.y*ml, **/*.mtaext.y*ml, **/*.mtaext, **/xs-app.json, helm/**, **/*.y*ml, **/*.tpl, **/*.tgz'
+      git: .git/**
+      opensourceConfiguration: '**/srcclr.yml, **/vulas-custom.properties, **/.nsprc, **/.retireignore, **/.retireignore.json, **/.snyk, **/wss-unified-agent.config, **/vendor/**/*'
+      pipelineConfigAndTests: .pipeline/**
+      securityDescriptor: '**/xs-security.json'
+      tests: '**/pom.xml, **/*.json, **/*.xml, **/src/**, **/node_modules/**, **/specs/**, **/env/**, **/*.js, **/tests/**, **/*.html, **/*.css, **/*.properties, **/*.cds'
+      checkmarx: '**/*.js, **/*.scala, **/*.py, **/*.go, **/*.xml, **/*.html, **/*.d, **/*.di, **/*.ts'
+      checkmarxOne: '**/*.js, **/*.scala, **/*.py, **/*.go, **/*.xml, **/*.html, **/*.d, **/*.di, **/*.ts'
+    stashExcludes:
+      buildDescriptor: '**/node_modules/**/package.json, cloudcitransfer/**/*'
+      deployDescriptor: cloudcitransfer/**/*
+      git: cloudcitransfer/**/*
+      opensourceConfiguration: cloudcitransfer/**/*
+      pipelineConfigAndTests: cloudcitransfer/**/*
+      securityDescriptor: cloudcitransfer/**/*
+      tests: cloudcitransfer/**/*
+      checkmarx: '**/*.mockserver.js, node_modules/**/*.js, cloudcitransfer/**/*'
+      checkmarxOne: '**/*.mockserver.js, node_modules/**/*.js, cloudcitransfer/**/*'
+    noDefaultExludes:
+    - git
+stages:
+  Build:
+    npmExecuteLint: false
+    kanikoExecute: false
+    mavenExecuteStaticCodeChecks: false
+  Additional Unit Tests:
+    karmaExecuteTests: false
+    npmExecuteScripts: false
+  Acceptance:
+    npmExecuteEndToEndTests: false
+    uiVeri5ExecuteTests: false
+    cloudFoundryDeploy: false
+    neoDeploy: false
+    kubernetesDeploy: false
+  Release:
+    cloudFoundryDeploy: false
+    tmsUpload: false
+    neoDeploy: false
+    kubernetesDeploy: false
+    transportRequestUploadCTS: false
+  Compliance:
+    sonarExecuteScan: false
+  Integration Tests:
+    confirmDeletion: false
