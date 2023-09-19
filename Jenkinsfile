@@ -4,7 +4,7 @@ node() {
   stage('init') {
     deleteDir()
 	checkout scm
-	def folder = "DelayedDelivery_Process";
+	def folder = "ConsumeEventsFromS4HANACloudwitoutslaccicdtest";
     def filePath = folder + ".zip";
     zip dir: folder, glob: '', zipFile: filePath;
   }
