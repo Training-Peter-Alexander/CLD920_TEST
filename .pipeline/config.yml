@@ -11,7 +11,7 @@ stages:
     enabled: true
 steps:
   integrationArtifactUpload:
-    packageId: "cicdtest"
+    packageId: "00cicdservice"
     integrationFlowName: "ConsumeEventsFromS4HANACloudwitoutslaccicdtest"
   integrationArtifactTriggerIntegrationTest:
     contentType: "application/json"
