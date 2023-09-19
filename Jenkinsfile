@@ -3,7 +3,7 @@ pipeline {
 
 	//Configure the following environment variables before executing the Jenkins Job	
 	environment {
-		IntegrationFlowID = "DelayedDelivery_Process"
+		IntegrationFlowID = "ConsumeEventsFromS4HANACloudwitoutslaccicdtests"
 		CPIHost = "${env.CLD900_CPI_HOST}"
 		CPIOAuthHost = "${env.CLD900_CPI_OAUTH_HOST}"
 		CPIOAuthCredentials = "CLD900_CPI_OAUTH_CRED"	
