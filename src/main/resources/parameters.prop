@@ -1,9 +1,0 @@
-#Mon Sep 18 14:04:29 UTC 2023
-s4cloudcred=s4hanacloud
-s4cloudauthentication=Basic
-s4cloudproxyurl=default
-inboundpath=/consume/s4hana/events/withoutslack
-userrole=ESBMessaging.send
-s4proxyurl=default
-s4cloudurl=
-s4hanaurl=https\://my304047-api.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner('${property.businessid}')
