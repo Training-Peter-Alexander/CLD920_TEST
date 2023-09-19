@@ -1,3 +1,0 @@
-#
-#Tue Sep 19 15:01:04 UTC 2023
-parameter_3=$select\=SalesOrderID,ItemPosition,DeliveryDate
