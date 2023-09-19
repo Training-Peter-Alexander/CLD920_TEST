@@ -1,0 +1,19 @@
+---
+general:
+  cpiApiServiceKeyCredentialsId: "ib23-d052537-pirapi"
+  integrationFlowId: "ConsumeEventsFromS4HANACloudwitoutslaccicdtest"
+stages:
+  uploadStage:
+    enabled: true
+  deployStage:
+    enabled: true
+  integrationTestStage:
+    enabled: true
+steps:
+  integrationArtifactUpload:
+    packageId: "00cicdservice"
+    integrationFlowName: "ConsumeEventsFromS4HANACloudwitoutslaccicdtest"
+  integrationArtifactTriggerIntegrationTest:
+    contentType: "application/json"
+    messageBodyPath: "Event_BusinesPartner.json"
+    integrationFlowServiceKeyCredentialsId: "ib23-d052537-piriflow"
