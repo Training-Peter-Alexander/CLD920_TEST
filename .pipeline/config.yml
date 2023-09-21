@@ -14,9 +14,13 @@ steps:
   integrationArtifactGetServiceEndpoint:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtest
-
   integrationArtifactUnDeploy:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
-    
+  integrationArtifactUpdateConfiguration:
+    cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
+    integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
+    integrationFlowVersion: 'MY_INTEGRATION_FLOW_VERSION'
+    parameterKey: 'MY_INTEGRATION_FLOW_CONFIG_PARAMETER_NAME'
+    parameterValue: 'MY_INTEGRATION_FLOW_CONFIG_PARAMETER_VALUE'
     
