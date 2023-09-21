@@ -29,11 +29,7 @@ stage ('Get Endpoint'){
 	
  }	
 
-stage('undeploy') {
-	integrationArtifactUnDeploy script: this
-		print "undeployed"
-	
- }
+
 	
 	
 }
