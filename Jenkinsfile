@@ -4,7 +4,7 @@ node() {
  stage('init') {
     deleteDir()
 	checkout scm
-	def folder = "ConsumeEventsFromS4HANACloudwitoutslaccicdtest";
+	def folder = "ConsumeEventsFromS4HANACloudwitoutslack";
     def filePath = folder + ".zip";
     zip dir: folder, glob: '', zipFile: filePath;
     setupCommonPipelineEnvironment script: this
