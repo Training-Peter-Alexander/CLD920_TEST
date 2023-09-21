@@ -19,5 +19,8 @@ node() {
 	 integrationArtifactGetServiceEndpoint script: this
 		print " Endpoint is:"
 		print  commonPipelineEnvironment.getValue("integrationFlowServiceEndpoint")
+     integrationArtifactUnDeploy script: this
+		print "undeployed"
+	  
   }
 }
