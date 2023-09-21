@@ -9,6 +9,11 @@ node() {
     zip dir: folder, glob: '', zipFile: filePath;
   }
 
+stage('Upload iFlow') {
+	integrationArtifactUpload script: this
+	 }
+	
+	
 stage('Change Parameter') {
 	integrationArtifactUpdateConfiguration script: this
 	
