@@ -34,7 +34,7 @@
     <additionalMetadata/>
   </parameter><parameter>
     <key/>
-    <name>userrole</name>
+    <name>inboundpath</name>
     <type>xsd:string</type>
     <isRequired>false</isRequired>
     <constraint/>
@@ -42,7 +42,7 @@
     <additionalMetadata/>
   </parameter><parameter>
     <key/>
-    <name>inboundpath</name>
+    <name>userrole</name>
     <type>xsd:string</type>
     <isRequired>false</isRequired>
     <constraint/>
