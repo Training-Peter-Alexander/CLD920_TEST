@@ -1,7 +1,7 @@
 @Library('piper-lib-os') _
 
 node() {
-  stage('init') {
+ stage('init') {
     deleteDir()
 	checkout scm
 	def folder = "ConsumeEventsFromS4HANACloudwitoutslaccicdtest";
@@ -9,17 +9,14 @@ node() {
     zip dir: folder, glob: '', zipFile: filePath;
   }
 	
-  stage('deployIntegrationArtifact and Get MPL Status') {
+stage('deployIntegrationArtifact and Get MPL Status') {
   	 setupCommonPipelineEnvironment script: this
 	   integrationArtifactUpload script: this
      integrationArtifactDeploy script: this
 	   integrationArtifactGetMplStatus script: this
 	   print "MPL Status:"
 	   print  commonPipelineEnvironment.getValue("integrationFlowMplStatus")
-	   
-	  
   }
-
 stage('Change Parameter') {
 	integrationArtifactUpdateConfiguration script: this
 	
