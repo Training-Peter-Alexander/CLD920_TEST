@@ -20,7 +20,7 @@ steps:
   integrationArtifactUpdateConfiguration:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
-    integrationFlowVersion: 'MY_INTEGRATION_FLOW_VERSION'
+    integrationFlowVersion: 1.0.15
     parameterKey: 'MY_INTEGRATION_FLOW_CONFIG_PARAMETER_NAME'
     parameterValue: 'MY_INTEGRATION_FLOW_CONFIG_PARAMETER_VALUE'
     
