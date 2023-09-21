@@ -8,6 +8,11 @@ node() {
     def filePath = folder + ".zip";
     zip dir: folder, glob: '', zipFile: filePath;
   }
+
+stage('Change Parameter') {
+	integrationArtifactUpdateConfiguration script: this
+	
+ }
 	
 stage('deployIntegrationArtifact and Get MPL Status') {
   	 setupCommonPipelineEnvironment script: this
@@ -17,10 +22,7 @@ stage('deployIntegrationArtifact and Get MPL Status') {
 	   print "MPL Status:"
 	   print  commonPipelineEnvironment.getValue("integrationFlowMplStatus")
   }
-stage('Change Parameter') {
-	integrationArtifactUpdateConfiguration script: this
-	
- }
+
 
 stage ('Get Endpoint'){
 	integrationArtifactGetServiceEndpoint script: this
