@@ -5,18 +5,23 @@ steps:
     integrationFlowName: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
     packageId: 01cicdpiper
     filePath: ConsumeEventsFromS4HANACloudwitoutslaccicdtest.zip
+    
   integrationArtifactDeploy:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtest
+    
   integrationArtifactGetMplStatus:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtest
+    
   integrationArtifactGetServiceEndpoint:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtest
+    
   integrationArtifactUnDeploy:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
+    
   integrationArtifactUpdateConfiguration:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
