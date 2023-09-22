@@ -11,7 +11,6 @@ steps:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslack
     
-    
   integrationArtifactGetMplStatus:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslack
@@ -20,15 +19,4 @@ steps:
   integrationArtifactGetServiceEndpoint:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslack
-    
-    
-  IntegrationArtifactUpdateConfiguration:
-    cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
-    integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslack
-    integrationFlowVersion: 1.0.16
-    parameterKey: s4cloudcred
-    parameterValue: xx
-    verbose: true
-    
-    
     
