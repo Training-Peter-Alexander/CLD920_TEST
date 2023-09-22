@@ -10,17 +10,16 @@ node() {
     setupCommonPipelineEnvironment script: this
   }
   
-  stage('Change Parameter') {
-	integrationArtifactUpdateConfiguration script: this
-	print "done"
- }
-
+  
 stage('Upload iFlow') {
 	 integrationArtifactUpload script: this
 		print "iFlow is uploaded"
 	 }
 	
-	
+stage('Change Parameter') {
+	integrationArtifactUpdateConfiguration script: this
+	print "done"
+ }	
 	
 stage('deployIntegrationArtifact and Get MPL Status') {
   	 
