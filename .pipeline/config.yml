@@ -24,7 +24,6 @@ steps:
     
   IntegrationArtifactUpdateConfiguration:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
-    apiServiceKey: ib23-d052537-pirapi-new
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslack
     integrationFlowVersion: 1.0.16
     parameterKey: s4cloudcred
