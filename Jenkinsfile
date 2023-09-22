@@ -16,10 +16,7 @@ node() {
 		print "iFlow is uploaded"
 	 }
 	
-	stage('Change Parameter') {
-	integrationArtifactUpdateConfiguration script: this
-	print "done"
- }	
+
  
 stage('deployIntegrationArtifact and Get MPL Status') {
   	 
