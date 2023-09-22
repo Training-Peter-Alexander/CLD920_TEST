@@ -16,12 +16,6 @@ stage('Upload iFlow') {
 	 }
 	
 	
-stage('Change Parameter') {
-	 integrationArtifactUpdateConfiguration script: this
-	  print "Parameter is changed"
-	  verbose:true
-	
- }
 	
 stage('deployIntegrationArtifact and Get MPL Status') {
   	 
