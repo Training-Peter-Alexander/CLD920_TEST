@@ -9,6 +9,11 @@ node() {
     zip dir: folder, glob: '', zipFile: filePath;
     setupCommonPipelineEnvironment script: this
   }
+  
+  stage('Change Parameter') {
+	integrationArtifactUpdateConfiguration script: this
+	print "done"
+ }
 
 stage('Upload iFlow') {
 	 integrationArtifactUpload script: this
