@@ -12,12 +12,7 @@ node() {
   
   
 
-	
-stage('Change Parameter') {
-	integrationArtifactUpdateConfiguration script: this
-	print "done"
- }	
- 
+
  
  stage('Upload iFlow') {
 	 integrationArtifactUpload script: this
