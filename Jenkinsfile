@@ -16,7 +16,7 @@ node() {
 		print "iFlow is uploaded"
 	 }
 	
- stage('Change Properties) {
+ stage('Change Properties') {
 	 integrationArtifactUpdateConfiguration script: this
 		print "Paramters updated"
 	 }
