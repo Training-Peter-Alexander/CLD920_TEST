@@ -1,5 +1,3 @@
-library('piper-lib-os') _
-node() {
+library('piper-lib-os')
 
 integrationArtifactUpload script: this
-}
