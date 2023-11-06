@@ -1,8 +1,8 @@
 steps:
-  integrationArtifactUpload:
-    cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
-    integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslack
-    integrationFlowName: ConsumeEventsFromS4HANACloudwitoutslack
-    packageId: 01cicdpiper
-    filePath: ConsumeEventsFromS4HANACloudwitoutslack.zip
-    verbose: true
+    integrationArtifactUpload:
+        cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
+        integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslack
+        integrationFlowName: ConsumeEventsFromS4HANACloudwitoutslack
+        packageId: 01cicdpiper
+        filePath: ConsumeEventsFromS4HANACloudwitoutslack.zip
+        verbose: true
