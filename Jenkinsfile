@@ -1,3 +1,11 @@
-library('piper-lib-os')
+@Library('piper-lib-os') _
 
-integrationArtifactUpload script: this
+node() {
+  stage('init') {
+    deleteDir()
+    checkout scm
+  }
+  stage('deployIntegrationArtifact Command') {
+       integrationArtifactUpload script: this
+  }
+}
