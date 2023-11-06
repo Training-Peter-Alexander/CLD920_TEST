@@ -4,4 +4,4 @@ steps:
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslack
     integrationFlowName: ConsumeEventsFromS4HANACloudwitoutslack
     packageId: 01cicdpiper
-    filePath: ConsumeEventsFromS4HANACloudwitoutslack
+    filePath: ConsumeEventsFromS4HANACloudwitoutslack.zip
