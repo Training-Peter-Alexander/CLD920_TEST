@@ -5,3 +5,9 @@ steps:
     integrationFlowName: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
     packageId: CICD
     filePath: ConsumeEventsFromS4HANACloudwitoutslaccicdtests.zip
+
+  integrationArtifactResource:
+    cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
+    integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
+    operation: delete
+    resourcePath: ConsumeEventsFromS4HANACloudwitoutslaccicdtests.zip
