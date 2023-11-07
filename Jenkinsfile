@@ -12,4 +12,9 @@ stage('integrationArtifactDeploy Command') {
        integrationArtifactDeploy script: this
   }
 
+stage('integrationArtifactGetServiceEndpoint Command') {
+       integrationArtifactGetServiceEndpoint script: this
+  }
+
+  
 }
