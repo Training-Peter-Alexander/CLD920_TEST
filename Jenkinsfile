@@ -15,7 +15,7 @@ stage('integrationArtifactDeploy Command') {
 stage('Wait Command') {
     echo 'Wait !!'
     // sleep 20  
-   sleep time: 5, unit: 'SECONDS'
+   sleep time: 20, unit: 'SECONDS'
     echo 'After waiting'
   }  
 
