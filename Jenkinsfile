@@ -12,10 +12,11 @@ stage('integrationArtifactDeploy Command') {
        integrationArtifactDeploy script: this
   }
 
-
 stage('Wait Command') {
-           waitstep script: this
-        }
+    echo 'Wait !!'
+    sleep 20  
+    echo 'After waiting'
+  }  
 
 
 stage('integrationArtifactGetServiceEndpoint Command') {
