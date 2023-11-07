@@ -19,6 +19,13 @@ stage('Wait Command') {
     echo 'After waiting'
   }  
 
+stage('Wait 2') {
+    waitUntil {
+      return !jenkins.model.Jenkins.instance.queue.items.any { item -> item.task.name == 'integrationArtifactDeploy Command'}
+      }
+        echo 'Step 2 has finished, proceeding with Step 3'
+        }
+
 
 stage('integrationArtifactGetServiceEndpoint Command') {
        integrationArtifactGetServiceEndpoint script: this
