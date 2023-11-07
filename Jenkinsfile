@@ -12,6 +12,16 @@ stage('integrationArtifactDeploy Command') {
        integrationArtifactDeploy script: this
   }
 
+
+stage('Wait Command') {
+            steps {
+                echo 'Wait !!'
+                sleep 20  // Sleep for 5 seconds
+                echo 'After waiting'
+            }
+        }
+
+  
 stage('integrationArtifactGetServiceEndpoint Command') {
        integrationArtifactGetServiceEndpoint script: this
   }
