@@ -13,14 +13,14 @@ stage('integrationArtifactDeploy Command') {
   }
 
 
-stage('Wait 2') {
+stage('----- Wait deployment is sucessfull') {
     waitUntil {
       return !jenkins.model.Jenkins.instance.queue.items.any { item -> item.task.name == 'integrationArtifactDeploy Command'}
       }
         echo 'Step 2 has finished, proceeding with Step 3'
         }
 
-stage('Wait Command') {
+stage('------- Wait 20 sec') {
     echo 'Wait !!'
     // sleep 20  
    sleep time: 20, unit: 'SECONDS'
