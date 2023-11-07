@@ -13,3 +13,9 @@ steps:
   integrationArtifactGetServiceEndpoint:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
+
+   waitstep:
+    echo 'Wait !!'
+    sleep 20  
+    echo 'After waiting'
+            
