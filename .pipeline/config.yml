@@ -9,3 +9,7 @@ steps:
   integrationArtifactDeploy:
     cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
     integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
+
+  integrationArtifactGetServiceEndpoint:
+    cpiApiServiceKeyCredentialsId: ib23-d052537-pirapi
+    integrationFlowId: ConsumeEventsFromS4HANACloudwitoutslaccicdtests
